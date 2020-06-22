@@ -1,0 +1,12 @@
+@import "src/scss/colors";
+
+.main {
+  background-color: $superlightgray;
+  height: 100vh;
+}
+
+.container {
+  margin: 40px;
+  padding: 30px 25px;
+  background-color: white;
+}

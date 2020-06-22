@@ -1,17 +1,21 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { StylesProvider } from '@material-ui/core/styles';
 
 import Navbar from './components/Navbar';
 import Router from './components/Router';
 
+import styles from './styles.module.scss';
+
 function App() {
   return (
-    <Fragment>
+    <div className={styles.main}>
       <StylesProvider injectFirst>
         <Navbar />
-        <Router />
+        <div className={styles.container}>
+          <Router />
+        </div>
       </StylesProvider>
-    </Fragment>);
+    </div>);
 }
 
 export default App;
