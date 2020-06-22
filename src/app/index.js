@@ -15,7 +15,8 @@ function App() {
           <Router />
         </div>
       </StylesProvider>
-    </div>);
+    </div>
+  );
 }
 
 export default App;

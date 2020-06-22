@@ -5,10 +5,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
- function TyperadioGroup({ options }) {
+function TypeRadioGroup({ options }) {
   const [value, setValue] = React.useState();
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(event.target.value);
   };
 
@@ -16,10 +16,12 @@ import FormLabel from '@material-ui/core/FormLabel';
     <FormControl component="fieldset">
       <FormLabel component="legend">Type</FormLabel>
       <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-        {options.map(({ value, label }) => <FormControlLabel value={value} control={<Radio />} label={label} />)}
+        {options.map(({ value, label }) => (
+          <FormControlLabel value={value} control={<Radio />} label={label} />
+        ))}
       </RadioGroup>
     </FormControl>
   );
 }
 
-export default TyperadioGroup;
+export default TypeRadioGroup;

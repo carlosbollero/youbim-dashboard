@@ -3,13 +3,13 @@ import { Grid } from '@material-ui/core';
 
 import CreateItemForm from './components/CreateItemForm';
 
-function CreateItems(){
+function CreateItems() {
   return (
     <Grid container spacing={5}>
       <Grid item xs={6}>
         <CreateItemForm />
       </Grid>
-      <Grid item xs={6}></Grid>
+      <Grid item xs={6} />
     </Grid>
   );
 }

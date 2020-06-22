@@ -1,8 +1,8 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { Button } from '@material-ui/core';
 
-import { FORM_FIELDS } from './constants';
+import FORM_FIELDS from './constants';
 
 import styles from './styles.module.scss';
 
@@ -25,9 +25,11 @@ function CreateItemForm() {
         />
       ))}
 
-      <Button className={styles.submit} type="submit">Create Item</Button>
+      <Button className={styles.submit} type="submit">
+        Create Item
+      </Button>
     </form>
-  )
+  );
 }
 
 export default CreateItemForm;
