@@ -9,9 +9,9 @@ import styles from './styles.module.scss';
 function CreateItemForm() {
   const { register, handleSubmit, errors } = useForm();
   const handleFormSubmit = values => {
-    console.log('Values:', values);
+    //console.log('Values:', values);
   };
-  console.log('Errors', errors);
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
       {FORM_FIELDS.map(({ name, component: Input, validations, ...fieldProps }) => (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Tabs, Tab, IconButton } from '@material-ui/core';
-import ToolBar from '@material-ui/core/ToolBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 
 import PATHS from '../../../constants/paths';
@@ -14,7 +14,7 @@ function Navbar() {
   };
   return (
     <AppBar position="static">
-      <ToolBar className={styles.navbar}>
+      <Toolbar className={styles.navbar}>
         <Tabs value={tabValue} onChange={handleTabChange}>
           <Tab
             className={styles.tab}
@@ -41,7 +41,7 @@ function Navbar() {
         <IconButton className={styles.about}>
           <HelpOutlineOutlinedIcon fontSize="large" />
         </IconButton>
-      </ToolBar>
+      </Toolbar>
     </AppBar>
   );
 }
