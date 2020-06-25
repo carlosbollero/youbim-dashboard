@@ -8,7 +8,7 @@ const reducer = (state, action) => {
       return { ...state, bundle: [...state.bundle, action.payload] };
     }
     case 'removeFromBundle': {
-      return { ...state, items: removeItem(state.bundle, action.payload) };
+      return { ...state, bundle: removeItem(state.bundle, action.payload) };
     }
     default: {
       return state;
