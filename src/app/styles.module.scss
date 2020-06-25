@@ -1,0 +1,12 @@
+@import "src/scss/colors";
+
+.main {
+  background-color: $lightgray-primary;
+  height: 100vh;
+}
+
+.content {
+  margin: 40px;
+  padding: 30px 25px;
+  background-color: white;
+}

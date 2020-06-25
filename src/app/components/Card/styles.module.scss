@@ -1,0 +1,32 @@
+@import "src/scss/colors";
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: $lightgray-primary-light;
+  border-bottom: solid 1px $lightgray-primary-dark;
+  padding-left: 24px;
+}
+
+.action-button {
+  color: white;
+  width: 80px;
+  text-transform: none;
+}
+
+.card-subtitle {
+  margin: 20px 0 10px;
+  font-weight: 500;
+}
+
+.card-content {
+  padding: 20px 24px;
+}
+
+.sub-content {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}

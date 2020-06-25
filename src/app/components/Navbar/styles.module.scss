@@ -1,0 +1,17 @@
+@import "src/scss/colors";
+
+.navbar {
+  background-color: $darkblue-primary;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.button {
+  background-color: $lightblue-primary;
+  height: 100%;
+}
+
+.about {
+  justify-self: flex-end;
+  color: white;
+}

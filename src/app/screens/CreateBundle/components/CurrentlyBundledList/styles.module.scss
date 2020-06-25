@@ -1,0 +1,31 @@
+@import "src/scss/colors";
+
+.title {
+  margin-bottom: 20px;
+}
+
+.delete-button {
+  background-color: $red-primary;
+
+  &:hover {
+  background-color: $red-primary-dark;
+  }
+}
+
+.accept-button {
+  width: 140px;
+  height: 40px;
+  text-transform: none;
+  background-color: $lightblue-primary;
+  color: white;
+
+  &:hover {
+    background-color: $lightblue-primary-dark;
+  }
+}
+
+.bundle-total {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 10px;
+}

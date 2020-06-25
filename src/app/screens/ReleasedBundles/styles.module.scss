@@ -1,0 +1,26 @@
+@import "src/scss/colors";
+
+.bundle-container {
+  padding: 20px;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  color: white;
+  text-transform: none;
+  background-color: $red-primary;
+
+  &:hover {
+  background-color: $red-primary-dark;
+  }
+}
