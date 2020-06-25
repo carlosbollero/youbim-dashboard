@@ -3,7 +3,7 @@ import { string, node, shape, arrayOf } from 'prop-types';
 import { Card as MCard, CardHeader, CardContent, Button, Typography } from '@material-ui/core';
 
 function BaseCard({ className, title, action, text, children }) {
-  const actionButton = action && <Button onClick={() => console.log('Click')}>{action.label}</Button>;
+  const actionButton = action && <Button onClick={() => action.call(title)}>{action.label}</Button>;
   return (
     <MCard className={className}>
       <CardHeader title={title} action={actionButton} />
@@ -37,7 +37,7 @@ function Card({ className, title, action, content }) {
     <BaseCard className={className} title={title} action={action} text={text}>
       {subContent &&
         subContent.map(({ title: sTitle, text: sText }) => (
-          <BaseCard key={sTitle} title={sTitle} text={sText} />
+          <BaseCard key={sTitle} title={sTitle} action={action} text={sText} />
         ))}
     </BaseCard>
   );
