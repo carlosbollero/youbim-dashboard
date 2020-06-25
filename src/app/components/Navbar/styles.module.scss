@@ -1,5 +1,10 @@
 @import "src/scss/colors";
 
+.navbar-container {
+  left: 0;
+  top: 0;
+}
+
 .navbar {
   background-color: $darkblue-primary;
   flex-flow: row nowrap;
