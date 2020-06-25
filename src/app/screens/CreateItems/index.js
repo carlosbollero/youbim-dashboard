@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import { ItemContext } from '../../contexts/ItemsContext';
 import withContext from '../../hooks/withContext';
 import CreateItemForm from './components/CreateItemForm';
-import CardsList from './components/CardsList';
+import ItemsList from './components/ItemsList';
 
 function CreateItems() {
   return (
@@ -13,9 +13,8 @@ function CreateItems() {
         <CreateItemForm />
       </Grid>
       <Grid item xs={6}>
-        <CardsList />
+        <ItemsList />
       </Grid>
-      <Grid item xs={6} />
     </Grid>
   );
 }

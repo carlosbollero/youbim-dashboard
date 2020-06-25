@@ -4,7 +4,7 @@ import { Card as MCard, CardHeader, CardContent, Button, Typography } from '@mat
 
 function BaseCard({ className, actionButtonClassName, headerClassName, title, action, text, children }) {
   const actionButton = action && (
-    <Button className={actionButtonClassName} onClick={() => action.call(title)}>
+    <Button className={actionButtonClassName} onClick={() => action.onClick(title)}>
       {action.label}
     </Button>
   );
@@ -66,7 +66,7 @@ function Card({
             headerClassName={headerClassName}
             key={sTitle}
             title={sTitle}
-            action={action}
+            action={!action.onlyParent && action}
             text={sText}
           />
         ))}

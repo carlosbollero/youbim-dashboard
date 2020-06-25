@@ -4,14 +4,9 @@
   margin-bottom: 20px;
 }
 
-.delete-button {
-  background-color: $red-primary;
+.action-button {
   color: white;
   width: 80px;
-
-  &:hover {
-  background-color: $red-primary-dark;
-  }
 }
 
 .card-header {
