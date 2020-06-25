@@ -5,8 +5,22 @@
   flex-flow: column nowrap;
 }
 
-.input {
+.input-container {
   margin-bottom: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input-label {
+  margin-right: 10px;
+  width: 250px;
+  text-align: end;
+}
+
+.input {
+  width: 100%;
 }
 
 .submit {
@@ -15,6 +29,7 @@
   text-transform: none;
   background-color: $lightblue-primary;
   color: white;
+  margin-left: 195px;
 
   &:hover {
     background-color: $lightblue-primary-dark;

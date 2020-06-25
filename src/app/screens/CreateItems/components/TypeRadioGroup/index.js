@@ -1,18 +1,21 @@
 import React from 'react';
 import { string, func, any, arrayOf, shape, oneOfType } from 'prop-types';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import { Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core';
 
-function TypeRadioGroup({ className, inputClassName, name, options, inputRef }) {
+import styles from './styles.module.scss';
+
+function TypeRadioGroup({ className, inputClassName, name, options, inputRef, defaultValue }) {
   return (
     <FormControl className={className} component="fieldset">
-      <FormLabel component="legend">Type</FormLabel>
-      <RadioGroup className={inputClassName} name={name} onChange={() => null}>
+      <RadioGroup className={inputClassName} name={name} onChange={() => null} defaultValue={defaultValue}>
         {options.map(({ value, label }) => (
-          <FormControlLabel key={label} value={value} control={<Radio />} label={label} inputRef={inputRef} />
+          <FormControlLabel
+            key={label}
+            value={value}
+            control={<Radio className={styles.radio} />}
+            label={label}
+            inputRef={inputRef}
+          />
         ))}
       </RadioGroup>
     </FormControl>
@@ -25,6 +28,7 @@ TypeRadioGroup.propTypes = {
   name: string,
   options: arrayOf(shape({ value: string, label: string })).isRequired,
   inputRef: oneOfType([func, shape({ current: any })]).isRequired,
+  defaultValue: string.isRequired,
 };
 
 TypeRadioGroup.defaultProps = {

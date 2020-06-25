@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Button } from '@material-ui/core';
+import { Button, InputLabel } from '@material-ui/core';
 
 import { useDispatch, useSelector } from '../../../../contexts/ItemsContext';
 import FORM_FIELDS from './constants';
@@ -18,20 +18,23 @@ function CreateItemForm() {
   };
   return (
     <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
-      {FORM_FIELDS.map(({ name, component: Input, validations, ...fieldProps }) => {
+      {FORM_FIELDS.map(({ name, label, component: Input, validations, ...fieldProps }) => {
         const inputRef = validations ? register(validations) : register;
         return (
-          <Input
-            key={name}
-            name={name}
-            className={styles.input}
-            inputRef={inputRef}
-            helperText={errors[name]?.message}
-            options={itemsCodes}
-            control={control}
-            size="small"
-            {...fieldProps}
-          />
+          <div className={styles['input-container']}>
+            <InputLabel className={styles['input-label']}>{label}:</InputLabel>
+            <Input
+              key={name}
+              name={name}
+              className={styles.input}
+              inputRef={inputRef}
+              helperText={errors[name]?.message}
+              options={itemsCodes}
+              control={control}
+              size="small"
+              {...fieldProps}
+            />
+          </div>
         );
       })}
       <Button className={styles.submit} type="submit">

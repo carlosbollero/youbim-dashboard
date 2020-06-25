@@ -27,6 +27,7 @@ const FORM_FIELDS = [
     variant: 'outlined',
     type: 'number',
     validations: { min: { value: 0, message: 'Must be a positive number' } },
+    defaultValue: 0,
   },
   {
     name: 'type',
@@ -38,14 +39,7 @@ const FORM_FIELDS = [
     ],
     variant: 'outlined',
     inputClassName: styles['radio-buttons'],
-  },
-  {
-    name: 'order',
-    label: 'Order',
-    component: TextField,
-    variant: 'outlined',
-    type: 'number',
-    validations: { min: { value: 0, message: 'Must be a positive number' } },
+    defaultValue: 'single',
   },
   {
     name: 'parent',
