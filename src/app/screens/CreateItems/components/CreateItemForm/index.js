@@ -29,6 +29,7 @@ function CreateItemForm() {
             helperText={errors[name]?.message}
             options={itemsCodes}
             control={control}
+            size="small"
             {...fieldProps}
           />
         );

@@ -1,10 +1,7 @@
 import React from 'react';
-import cn from 'classnames';
 
 import Card from '../Card';
 import { buildContent } from './utils';
-
-import styles from './styles.module.scss';
 
 function CardsList({
   cardClassName,
@@ -17,10 +14,10 @@ function CardsList({
   return items.map(item => {
     return (
       <Card
-        className={cn(styles.card, cardClassName)}
-        actionButtonClassName={cn(styles['action-button'], actionButtonClassName)}
-        contentClassName={cn(styles['sub-content'], contentClassName)}
-        headerClassName={cn(styles['card-header'], headerClassName)}
+        className={cardClassName}
+        actionButtonClassName={actionButtonClassName}
+        contentClassName={contentClassName}
+        headerClassName={headerClassName}
         key={item.code}
         title={item.code}
         action={headerAction}

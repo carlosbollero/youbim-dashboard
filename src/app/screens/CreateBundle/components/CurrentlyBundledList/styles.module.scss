@@ -1,0 +1,13 @@
+@import "src/scss/colors";
+
+.title {
+  margin-bottom: 20px;
+}
+
+.delete-button {
+  background-color: $red-primary;
+
+  &:hover {
+  background-color: $red-primary-dark;
+  }
+}

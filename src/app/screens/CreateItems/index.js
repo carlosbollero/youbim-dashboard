@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 
-import { ItemContext } from '../../contexts/ItemsContext';
-import withContext from '../../hooks/withContext';
+import { ItemsContext } from '../../contexts/ItemsContext';
+import withContext from '../../hocs/withContext';
 import CreateItemForm from './components/CreateItemForm';
 import ItemsList from './components/ItemsList';
 
@@ -19,4 +19,4 @@ function CreateItems() {
   );
 }
 
-export default withContext(ItemContext)(CreateItems);
+export default withContext(ItemsContext)(CreateItems);

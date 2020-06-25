@@ -1,6 +1,9 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 
-import { useSelector, useDispatch } from '../../../../contexts/ItemsContext';
+import { ItemsContext, useSelector } from '../../../../contexts/ItemsContext';
+import { BundlesContext, useDispatch } from '../../../../contexts/BundlesContext';
+import { compose, withContext } from '../../../../hocs';
 import CardList from '../../../../components/CardsList';
 
 import styles from './styles.module.scss';
@@ -10,14 +13,22 @@ function AvailableItemsList() {
   const dispatch = useDispatch();
   const action = {
     label: 'Add to Bundle',
-    onClick: code => dispatch({ type: 'addToBundle', payload: code }),
+    onClick: code => {
+      const item = items.find(i => i.code === code);
+      dispatch({ type: 'addToBundle', payload: item });
+    },
     onlyParent: true,
   };
   return (
-    <div>
+    <>
+      <Typography className={styles.title} variant="h5">
+        Available Items
+      </Typography>
       <CardList actionButtonClassName={styles['add-button']} items={items} headerAction={action} />
-    </div>
+    </>
   );
 }
 
-export default AvailableItemsList;
+const enhanced = compose(withContext(ItemsContext), withContext(BundlesContext));
+
+export default enhanced(AvailableItemsList);

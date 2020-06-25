@@ -1,7 +1,10 @@
 @import "src/scss/colors";
 
+.title {
+  margin-bottom: 20px;
+}
+
 .add-button {
-  text-transform: none;
   color: $gray-primary;
   width: 120px;
   border: solid $lightgray-primary-dark 1px;

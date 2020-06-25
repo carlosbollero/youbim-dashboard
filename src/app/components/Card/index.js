@@ -1,17 +1,23 @@
 import React from 'react';
+import cn from 'classnames';
 import { string, node, shape, arrayOf } from 'prop-types';
 import { Card as MCard, CardHeader, CardContent, Button, Typography } from '@material-ui/core';
 
+import styles from './styles.module.scss';
+
 function BaseCard({ className, actionButtonClassName, headerClassName, title, action, text, children }) {
   const actionButton = action && (
-    <Button className={actionButtonClassName} onClick={() => action.onClick(title)}>
+    <Button
+      className={cn(styles['action-button'], actionButtonClassName)}
+      onClick={() => action.onClick(title)}
+    >
       {action.label}
     </Button>
   );
   return (
     <MCard className={className}>
       <CardHeader className={headerClassName} title={title} action={actionButton} />
-      <CardContent>
+      <CardContent className={styles['card-content']}>
         {text.map(p => (
           <Typography key={p}>{p}</Typography>
         ))}
@@ -51,25 +57,31 @@ function Card({
   const { text, subContent } = content;
   return (
     <BaseCard
-      className={className}
+      className={cn(styles.card, className)}
       actionButtonClassName={actionButtonClassName}
-      contentClassName={contentClassName}
+      headerClassName={cn(styles['card-header'], headerClassName)}
       title={title}
       action={action}
       text={text}
     >
-      {subContent &&
-        subContent.map(({ title: sTitle, text: sText }) => (
-          <BaseCard
-            className={contentClassName}
-            actionButtonClassName={actionButtonClassName}
-            headerClassName={headerClassName}
-            key={sTitle}
-            title={sTitle}
-            action={!action.onlyParent && action}
-            text={sText}
-          />
-        ))}
+      {subContent.length > 0 && (
+        <>
+          <Typography className={styles['card-subtitle']} variant="subtitle1">
+            Sub-Items
+          </Typography>
+          {subContent.map(({ title: sTitle, text: sText }) => (
+            <BaseCard
+              className={cn(styles['sub-content'], contentClassName)}
+              actionButtonClassName={actionButtonClassName}
+              headerClassName={cn(styles['card-header'], headerClassName)}
+              key={sTitle}
+              title={sTitle}
+              action={!action.onlyParent && action}
+              text={sText}
+            />
+          ))}
+        </>
+      )}
     </BaseCard>
   );
 }

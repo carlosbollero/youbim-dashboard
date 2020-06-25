@@ -1,15 +1,15 @@
 import { createContext, useContext } from 'react';
 
-const ItemContext = createContext(null);
+const ItemsContext = createContext(null);
 
 const useDispatch = () => {
-  const { dispatch } = useContext(ItemContext);
+  const { dispatch } = useContext(ItemsContext);
   return dispatch;
 };
 
 const useSelector = selector => {
-  const { state } = useContext(ItemContext);
+  const { state } = useContext(ItemsContext);
   return selector(state);
 };
 
-export { ItemContext, useDispatch, useSelector };
+export { ItemsContext, useDispatch, useSelector };

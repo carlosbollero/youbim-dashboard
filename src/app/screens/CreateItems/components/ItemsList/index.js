@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 function ItemsList() {
   const items = useSelector(state => state.items);
   const dispatch = useDispatch();
-  const action = { label: 'Delete', call: code => dispatch({ type: 'removeItem', payload: code }) };
+  const action = { label: 'Delete', onClick: code => dispatch({ type: 'removeItem', payload: code }) };
   return <CardList actionButtonClassName={styles['delete-button']} items={items} headerAction={action} />;
 }
 
