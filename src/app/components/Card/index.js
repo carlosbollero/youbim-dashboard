@@ -76,7 +76,7 @@ function Card({
               headerClassName={cn(styles['card-header'], headerClassName)}
               key={sTitle}
               title={sTitle}
-              action={!action.onlyParent && action}
+              action={!action?.onlyParent && action}
               text={sText}
             />
           ))}
