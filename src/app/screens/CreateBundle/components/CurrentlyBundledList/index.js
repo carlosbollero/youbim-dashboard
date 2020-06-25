@@ -11,11 +11,17 @@ import styles from './styles.module.scss';
 function CurrentlyBundled() {
   const bundle = useSelector(state => state.bundle);
   const dispatch = useDispatch();
+
+  const handleAcceptBundle = () => {
+    dispatch({ type: 'saveBundle' });
+  };
+
   const action = {
     label: 'Delete',
     onClick: code => dispatch({ type: 'removeFromBundle', payload: code }),
     onlyParent: true,
   };
+
   const bundleTotal = getBundleTotal(bundle);
   return (
     <>
@@ -26,7 +32,7 @@ function CurrentlyBundled() {
       {bundle.length > 0 && (
         <>
           <Typography className={styles['bundle-total']} variant="subtitle1">{`$ ${bundleTotal}`}</Typography>
-          <Button className={styles['accept-button']}>Accept Bundle</Button>
+          <Button className={styles['accept-button']} onClick={handleAcceptBundle}>Accept Bundle</Button>
         </>
       )}
     </>

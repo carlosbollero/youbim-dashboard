@@ -21,10 +21,9 @@ function CreateItemForm() {
       {FORM_FIELDS.map(({ name, label, component: Input, validations, ...fieldProps }) => {
         const inputRef = validations ? register(validations) : register;
         return (
-          <div className={styles['input-container']}>
+          <div key={name} className={styles['input-container']}>
             <InputLabel className={styles['input-label']}>{label}:</InputLabel>
             <Input
-              key={name}
               name={name}
               className={styles.input}
               inputRef={inputRef}
