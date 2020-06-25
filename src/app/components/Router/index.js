@@ -3,14 +3,17 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import ROUTES from './constants';
 
-function Router() {
+function Router({ contentClassName, children }) {
   return (
     <BrowserRouter>
-      <Switch>
-        {ROUTES.map(({ path, component }) => (
-          <Route key={path} path={path} component={component} />
-        ))}
-      </Switch>
+      {children}
+      <div className={contentClassName}>
+        <Switch>
+          {ROUTES.map(({ path, component, ...routeConfig }) => (
+            <Route key={path} path={path} component={component} {...routeConfig} />
+          ))}
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

@@ -1,6 +1,7 @@
 import { TextField } from '@material-ui/core';
 
 import TypeRadioGroup from '../TypeRadioGroup';
+import ParentSelect from '../ParentSelect';
 
 const FORM_FIELDS = [
   {
@@ -23,7 +24,7 @@ const FORM_FIELDS = [
     component: TextField,
     variant: 'outlined',
     type: 'number',
-    validations: { min: 0 },
+    validations: { min: { value: 0, message: 'Must be a positive number' } },
   },
   {
     name: 'type',
@@ -41,7 +42,14 @@ const FORM_FIELDS = [
     component: TextField,
     variant: 'outlined',
     type: 'number',
-    validations: { min: 0 },
+    validations: { min: { value: 0, message: 'Must be a positive number' } },
+  },
+  {
+    name: 'parent',
+    label: 'Parent',
+    component: ParentSelect,
+    type: 'select',
+    variant: 'outlined',
   },
 ];
 

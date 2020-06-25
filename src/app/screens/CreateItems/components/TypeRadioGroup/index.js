@@ -1,24 +1,18 @@
 import React from 'react';
-import { string, arrayOf, shape } from 'prop-types';
+import { string, func, any, arrayOf, shape, oneOfType } from 'prop-types';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
-function TypeRadioGroup({ options }) {
-  const [value, setValue] = React.useState();
-
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
-
+function TypeRadioGroup({ className, name, options, inputRef }) {
   return (
-    <FormControl component="fieldset">
+    <FormControl className={className} component="fieldset">
       <FormLabel component="legend">Type</FormLabel>
-      <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+      <RadioGroup name={name} onChange={() => null}>
         {options.map(({ value, label }) => (
-          <FormControlLabel value={value} control={<Radio />} label={label} />
+          <FormControlLabel key={label} value={value} control={<Radio />} label={label} inputRef={inputRef} />
         ))}
       </RadioGroup>
     </FormControl>
@@ -26,7 +20,15 @@ function TypeRadioGroup({ options }) {
 }
 
 TypeRadioGroup.propTypes = {
+  className: string,
+  name: string,
   options: arrayOf(shape({ value: string, label: string })).isRequired,
+  inputRef: oneOfType([func, shape({ current: any })]).isRequired,
+};
+
+TypeRadioGroup.defaultProps = {
+  className: '',
+  name: '',
 };
 
 export default TypeRadioGroup;

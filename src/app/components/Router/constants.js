@@ -6,7 +6,7 @@ import ReleasedBundles from '../../screens/ReleasedBundles';
 const ROUTES = [
   { path: PATHS.RELEASED_BUNDLES, component: ReleasedBundles },
   { path: PATHS.CREATE_BUNDLE, component: CreateBundle },
-  { path: PATHS.CREATE_ITEMS, component: CreateItems },
+  { path: PATHS.CREATE_ITEMS, component: CreateItems, exact: true },
 ];
 
 export default ROUTES;
