@@ -13,7 +13,7 @@ const addItem = (bundle, itemToAdd) => {
 const removeItem = (bundle, codeToRemove) => {
   const itemIdx = bundle.items.findIndex(item => item.code === codeToRemove);
   const items = [...bundle.items];
-  bundle.items.splice(itemIdx, 1);
+  items.splice(itemIdx, 1);
   return { items, price: bundle.price - bundle.items[itemIdx].price };
 };
 
