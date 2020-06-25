@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Tabs, Tab, IconButton } from '@material-ui/core';
+import { Link, useLocation } from 'react-router-dom';
+import { AppBar, Tabs, Tab } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 
 import PATHS from '../../../constants/paths';
 
 import styles from './styles.module.scss';
 
 function Navbar() {
-  const [currentTab, setCurrentTab] = useState(0);
+  const location = useLocation();
+  const [currentTab, setCurrentTab] = useState(location.pathname);
   const handleTabChange = (event, value) => {
     setCurrentTab(value);
   };
@@ -22,26 +22,23 @@ function Navbar() {
             component={Link}
             to={PATHS.CREATE_ITEMS}
             label="Create Items"
-            value={0}
+            value={PATHS.CREATE_ITEMS}
           />
           <Tab
             className={styles.tab}
             component={Link}
             to={PATHS.CREATE_BUNDLE}
             label="Create Bundle"
-            value={1}
+            value={PATHS.CREATE_BUNDLE}
           />
           <Tab
             className={styles.tab}
             component={Link}
             to={PATHS.RELEASED_BUNDLES}
             label="Released Bundles"
-            value={2}
+            value={PATHS.RELEASED_BUNDLES}
           />
         </Tabs>
-        <IconButton className={styles.about}>
-          <HelpOutlineOutlinedIcon fontSize="large" />
-        </IconButton>
       </Toolbar>
     </AppBar>
   );
