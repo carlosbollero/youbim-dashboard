@@ -14,7 +14,7 @@ function Navbar() {
     setCurrentTab(value);
   };
   return (
-    <AppBar position="static">
+    <AppBar position="absolute">
       <Toolbar className={styles.navbar}>
         <Tabs onChange={handleTabChange} value={currentTab}>
           <Tab
