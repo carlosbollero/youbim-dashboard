@@ -1,3 +1,26 @@
+@import "src/scss/colors";
+
 .card {
   margin-bottom: 20px;
+}
+
+.delete-button {
+  background-color: $red-primary;
+  color: white;
+  width: 80px;
+
+  &:hover {
+  background-color: $red-primary-dark;
+  }
+}
+
+.card-header {
+  background-color: $lightgray-primary-light;
+  border-bottom: solid 1px $lightgray-primary-dark;
+}
+
+.sub-content {
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
 }

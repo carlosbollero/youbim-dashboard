@@ -1,18 +1,13 @@
 @import "src/scss/colors";
 
 .navbar {
-  background-color: $darkblue;
+  background-color: $darkblue-primary;
   flex-flow: row nowrap;
   justify-content: flex-start;
 }
-.tab {
-  &:active {
-    background-color: $lightblue;
-  }
-}
 
 .button {
-  background-color: $lightblue;
+  background-color: $lightblue-primary;
   height: 100%;
 }
 

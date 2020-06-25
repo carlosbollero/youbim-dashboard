@@ -14,6 +14,9 @@ function CardsList() {
     return (
       <Card
         className={styles.card}
+        actionButtonClassName={styles['delete-button']}
+        contentClassName={styles['sub-content']}
+        headerClassName={styles['card-header']}
         key={item.code}
         title={item.code}
         action={action}

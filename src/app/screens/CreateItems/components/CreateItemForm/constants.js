@@ -3,6 +3,8 @@ import { TextField } from '@material-ui/core';
 import TypeRadioGroup from '../TypeRadioGroup';
 import ParentSelect from '../ParentSelect';
 
+import styles from './styles.module.scss';
+
 const FORM_FIELDS = [
   {
     name: 'code',
@@ -35,6 +37,7 @@ const FORM_FIELDS = [
       { value: 'multiple', label: 'Multiple' },
     ],
     variant: 'outlined',
+    inputClassName: styles['radio-buttons'],
   },
   {
     name: 'order',

@@ -2,11 +2,15 @@ import React from 'react';
 import { string, node, shape, arrayOf } from 'prop-types';
 import { Card as MCard, CardHeader, CardContent, Button, Typography } from '@material-ui/core';
 
-function BaseCard({ className, title, action, text, children }) {
-  const actionButton = action && <Button onClick={() => action.call(title)}>{action.label}</Button>;
+function BaseCard({ className, actionButtonClassName, headerClassName, title, action, text, children }) {
+  const actionButton = action && (
+    <Button className={actionButtonClassName} onClick={() => action.call(title)}>
+      {action.label}
+    </Button>
+  );
   return (
     <MCard className={className}>
-      <CardHeader title={title} action={actionButton} />
+      <CardHeader className={headerClassName} title={title} action={actionButton} />
       <CardContent>
         {text.map(p => (
           <Typography key={p}>{p}</Typography>
@@ -19,6 +23,8 @@ function BaseCard({ className, title, action, text, children }) {
 
 BaseCard.propTypes = {
   className: string,
+  actionButtonClassName: string,
+  headerClassName: string,
   title: string.isRequired,
   action: shape({ label: string }),
   text: arrayOf(string).isRequired,
@@ -27,17 +33,42 @@ BaseCard.propTypes = {
 
 BaseCard.defaultProps = {
   className: '',
+  actionButtonClassName: '',
+  headerClassName: '',
   action: null,
   children: null,
 };
 
-function Card({ className, title, action, content }) {
+function Card({
+  className,
+  actionButtonClassName,
+  contentClassName,
+  headerClassName,
+  title,
+  action,
+  content,
+}) {
   const { text, subContent } = content;
   return (
-    <BaseCard className={className} title={title} action={action} text={text}>
+    <BaseCard
+      className={className}
+      actionButtonClassName={actionButtonClassName}
+      contentClassName={contentClassName}
+      title={title}
+      action={action}
+      text={text}
+    >
       {subContent &&
         subContent.map(({ title: sTitle, text: sText }) => (
-          <BaseCard key={sTitle} title={sTitle} action={action} text={sText} />
+          <BaseCard
+            className={contentClassName}
+            actionButtonClassName={actionButtonClassName}
+            headerClassName={headerClassName}
+            key={sTitle}
+            title={sTitle}
+            action={action}
+            text={sText}
+          />
         ))}
     </BaseCard>
   );
@@ -45,6 +76,9 @@ function Card({ className, title, action, content }) {
 
 Card.propTypes = {
   className: string,
+  actionButtonClassName: string,
+  contentClassName: string,
+  headerClassName: string,
   title: string.isRequired,
   action: shape({ label: string }),
   content: shape({ text: arrayOf(string).isRequired, subContent: arrayOf(shape({})) }).isRequired,
@@ -52,6 +86,9 @@ Card.propTypes = {
 
 Card.defaultProps = {
   className: '',
+  actionButtonClassName: '',
+  contentClassName: '',
+  headerClassName: '',
   action: null,
 };
 

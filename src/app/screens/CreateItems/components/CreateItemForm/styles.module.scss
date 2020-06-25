@@ -13,6 +13,16 @@
   width: 120px;
   height: 40px;
   text-transform: none;
-  background-color: $lightblue;
+  background-color: $lightblue-primary;
   color: white;
+
+  &:hover {
+    background-color: $lightblue-primary-dark;
+  }
+}
+
+.radio {
+  &-buttons {
+    flex-flow: row nowrap;
+  }
 }
